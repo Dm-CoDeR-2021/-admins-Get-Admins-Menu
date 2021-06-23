@@ -8,7 +8,7 @@ DM.RegisterServerCallback('GetOnlineAdmins:tableinsert:this', function(source, c
 	local players  = {}
  	for i=1, #xPlayers, 1 do
 		local xPlayer = DM.GetPlayerFromId(xPlayers[i])
-        if xPlayer.permission_level > 1 then
+        if xPlayer.permission_level >= 1 then
 		table.insert(players, {
 			source = xPlayer.source,
 			name = xPlayer.name,
