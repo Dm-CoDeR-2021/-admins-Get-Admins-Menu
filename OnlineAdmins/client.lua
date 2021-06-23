@@ -12,7 +12,6 @@ RegisterNetEvent('Open:this:menu')
 AddEventHandler('Open:this:menu', function()
     AdminsMenu()
 end)
-local total = 0
 AdminsMenu = function()
     DM.TriggerServerCallback('GetOnlineAdmins:tableinsert:this', function(ad)
         local admins = {}
@@ -24,10 +23,9 @@ AdminsMenu = function()
                 group = ad[i].group,
                 name = ad[i].name
             })
-            total = ad
         end
         DM.UI.Menu.Open('default', GetCurrentResourceName(), 'adminslist', {
-            title = 'Admins : '..#total,
+            title = 'Admins',
             align = 'top-left',
             elements = admins
         }, function(d, m)
